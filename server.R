@@ -45,7 +45,7 @@ shinyServer(function(input, output) {
   
   #Define a function that creates the radio grid
   makeRadioGrid = function(rows = 2, columns = 2){
-    lapply(X = 1:rows, FUN = makeRadioButton2, inline = TRUE, opts = columns)}
+    lapply(X = 1:rows, FUN = makeRadioButton2, inline = TRUE, opts = columns, label = "Select")}
   
   #define a reactive object to hold the radio grid
   WidgetGrid = reactive({
