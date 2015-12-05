@@ -28,16 +28,13 @@ shinyUI(fluidPage(
       tabPanel(title = "Extract from grid",
                sidebarLayout(
                  sidebarPanel(
-                   style = "overflow-y:scroll; max-height: 600px; position:relative;",
-                   uiOutput("RadioGrid3")),
+                 style = "overflow-y:scroll; max-height: 600px; position:relative;",
+                 uiOutput("RadioGrid3")),
                  mainPanel(
                    fluidRow(
                      column(width = 6, uiOutput("NumberOfRows3")),
                      column(width = 6, uiOutput("NumberOfColumns3")) ),
-                   fluidRow(uiOutput("summary"))
-                 )#end of mainPanel
-               )#end of sidebarLayout
-      )#end of tabPanel
+                   fluidRow(uiOutput("summary")) ) ) )
     )#end of tabsetPanel
   )#end of mainPanel
 ))#end of shinyUI
