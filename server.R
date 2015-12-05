@@ -18,8 +18,7 @@ shinyServer(function(input, output) {
   output$WidgetVectorDisplay <- renderUI({
     if(is.null(input$TurnOn)){return()
     } else if(input$TurnOn == 2){return()
-    } else tagList(WidgetVector())
-  })
+    } else tagList(WidgetVector()) })
   
   ####Producing a radio grid####
   
@@ -30,14 +29,12 @@ shinyServer(function(input, output) {
   #define a reactive object to hold the radio grid
   WidgetGrid = reactive({
     if(is.null(input$RowCount) | is.null(input$ColumnCount)){return()
-    } else makeRadioGrid(input$ColumnCount, InLine = TRUE, label = 1:input$RowCount , droplabels = TRUE)
-  })
+    } else makeRadioGrid(input$ColumnCount, InLine = TRUE, label = 1:input$RowCount , droplabels = TRUE) })
   
   #create the output object to display the grid
   output$RadioGrid = renderUI({
     if(is.null(input$RowCount) | is.null(input$ColumnCount)){return()
-    } else tagList(WidgetGrid())
-  })
+    } else tagList(WidgetGrid()) })
   
   ####Producing a scrollable radio grid####
   
@@ -59,26 +56,22 @@ shinyServer(function(input, output) {
   positionstyle = reactive({
     if(is.null(input$Position)){return()
     } else if(input$Position){"overflow-y:scroll; max-height: 600px; position:relative;"
-    } else {"overflow-y:scroll; max-height: 600px"}
-  })
+    } else {"overflow-y:scroll; max-height: 600px"} })
   
   #define a reactive object to hold the radio grid
   WidgetGrid2 = reactive({
     if(is.null(input$RowCount2) | is.null(input$ColumnCount2)){return()
-    } else makeRadioGrid(input$ColumnCount2, InLine = input$InRows, label = paste0("a",1:input$RowCount2))
-  })
+    } else makeRadioGrid(input$ColumnCount2, InLine = input$InRows, label = paste0("a",1:input$RowCount2)) })
   
   #create the output object to hold the grid
   output$RadioGrid2partial = renderUI({
     if(is.null(input$RowCount2) | is.null(input$ColumnCount2)){return("")
-    } else tagList(WidgetGrid2())
-  })
+    } else tagList(WidgetGrid2()) })
   
   #create the output object to display the sidebarPanel with the grid in it
   output$RadioGrid2 = renderUI({sidebarPanel(
     style = positionstyle(),
-    uiOutput("RadioGrid2partial"))
-  }) 
+    uiOutput("RadioGrid2partial")) }) 
   
   ####Defining a radio grid and extracting the info####
   
@@ -91,20 +84,17 @@ shinyServer(function(input, output) {
   #define a reactive object to hold the radio grid
   WidgetGrid3 = reactive({
     if(is.null(input$RowCount3) | is.null(input$ColumnCount3)){return()
-    } else return(makeRadioGrid(input$ColumnCount3, InLine = TRUE, label = NamesOfRows()))
-  })
+    } else return(makeRadioGrid(input$ColumnCount3, InLine = TRUE, label = NamesOfRows())) })
   
   #create the output object to display the grid
   output$RadioGrid3 = renderUI({
     if(is.null(input$RowCount3) | is.null(input$ColumnCount3)){return("")
-    } else tagList(WidgetGrid3())
-  })
+    } else tagList(WidgetGrid3()) })
   
   #create an output object to display the summary
   output$summary = renderUI({
     if(is.null(input$RowCount3) | is.null(input$ColumnCount3)){return()
-    } else tagList(SummaryStuff())
-  }) 
+    } else tagList(SummaryStuff()) }) 
   
   #define a reactive object to hold the various summary info
   SummaryStuff = reactive(
